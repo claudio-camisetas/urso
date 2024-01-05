@@ -3,6 +3,7 @@
 import React, { useState, ChangeEvent } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
+import * as S from './SignUp.module.css'
 import logo from '../images/logo.png'
 
 const inactivedEye = 'https://centralderequisicoes.einstein.br/static/media/icon_olho_fechado.4b41a025.svg'
@@ -34,66 +35,54 @@ export default function SignUp() {
   }
 
   return (
-    <Container>
-      <SignUpContainer>
-        <ImageContainer>
+    <div className={S.container}>
+      <div className={S.signUpContainer}>
+        <div className={S.imageContainer}>
           <Image
             src={logo}
             width={200}
             height={200}
             alt='Picture of the author'
           />
-        </ImageContainer>
-        <Form>
-          <Input
+        </div>
+        <form className={S.form}>
+          <input
             type='tel'
             name='cpf'
             maxLength={14}
             placeholder='DIGITE SEU CPF'
             value={cpf}
             onChange={formatCpf}
+            className={S.input}
           />
-          <Input
+          <input
             type={eye === inactivedEye ? 'password' : 'text'}
             maxLength={8}
             placeholder='DIGITE SUA SENHA'
             value={password}
             onChange={formatedPassword}
+            className={S.input}
           />
           <EyeButton
             imageUrl={eye}
             onClick={changeEyeImage}
           />
-          <Button>CONTRATAR</Button>
-          <Option>
+          <button className={S.button}>CONTRATAR</button>
+          <div className={S.option}>
             <input type='checkbox' id='show' />
             <label htmlFor='show'>
               Não mostrar novamente
             </label>
-          </Option>
-          <Help>
+          </div>
+          <div className={S.help}>
             <span>Preciso de ajuda</span>
-            <Version>V1.87.1</Version>
-          </Help>
-        </Form>
-      </SignUpContainer>
-    </Container>
+            <div className={S.version}>V1.87.1</div>
+          </div>
+        </form>
+      </div>
+    </div>
   )
 }
-
-const Container = styled.div`
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #0070cc;
-  width: 100%;
-  height: 100%;
-  @media screen and (max-height: 600px) {
-    align-items: flex-start;
-    overflow: scroll;
-  }
-`
 
 const SignUpContainer = styled.div`
   position: absolute;
@@ -107,35 +96,6 @@ const SignUpContainer = styled.div`
   @media screen and (max-width: 450px) {
     width: 90%;
     overflow: scroll;
-  }
-`
-
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 450px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const Form = styled.form`
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`
-
-const Input = styled.input`
-  height: 50px;
-  padding: 0 20px;
-  border: 0;
-  margin: 10px 0;
-  border-radius: 3px;
-  width: 100%;
-  font-size: 14px;
-  &:focus {
-    outline: 2px solid #fcb502;
   }
 `
 
@@ -169,11 +129,6 @@ const Button = styled.button`
   &:active {
     background: #e3a302;
   }
-`
-
-const Option = styled.div`
-  color: #fff;
-  font-size: 16px;
 `
 
 const Help = styled.div`
