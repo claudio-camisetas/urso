@@ -42,6 +42,12 @@
   align-items: center;
 }
 
+.caixaContainer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
 .form {
   position: relative;
   display: flex;

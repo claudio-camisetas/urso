@@ -1,10 +1,13 @@
 'use client'
 
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, ChangeEvent, FormEvent } from 'react'
+import Router from 'next/router'
 import Image from 'next/image'
 import styled from 'styled-components'
 import * as S from './SignUp.module.css'
 import logo from '../images/logo.png'
+import caixaLogo from '../images/caixa.png'
+import Loading from './Loading'
 
 const inactivedEye = 'https://centralderequisicoes.einstein.br/static/media/icon_olho_fechado.4b41a025.svg'
 const activedEye = 'https://centralderequisicoes.einstein.br/static/media/icon_olho_aberto.9a36df1e.svg'
@@ -26,6 +29,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('')
   const [eye, setEye] = useState(inactivedEye)
   const [isCpfValid, setIsCpfValid] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   const formatCpf = (event: ChangeEvent<HTMLInputElement>) => {
     const formatedCpf = event.target.value
@@ -46,6 +50,14 @@ export default function SignUp() {
     else setEye(inactivedEye)
   }
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsLoading(true)
+    setTimeout(() => {
+      location.href = '/ready'
+    }, 3000)
+  }
+
   return (
     <div className={S.container}>
       <div className={S.signUpContainer}>
@@ -57,7 +69,15 @@ export default function SignUp() {
             alt='Picture of the author'
           />
         </div>
-        <form className={S.form}>
+        <div className={S.caixaContainer}>
+          <Image
+            src={caixaLogo}
+            width={40}
+            height={40}
+            alt='Picture of the author'
+          />
+        </div>
+        <form className={S.form} onSubmit={handleSubmit}>
           <input
             type='tel'
             name='cpf'
@@ -81,7 +101,9 @@ export default function SignUp() {
             imageUrl={eye}
             onClick={changeEyeImage}
           />
-          <button className={S.button}>CONTRATAR</button>
+          <button className={S.button}>
+            CONTRATAR
+          </button>
           <div className={S.option}>
             <input type='checkbox' id='show' />
             <label htmlFor='show'>
@@ -94,6 +116,7 @@ export default function SignUp() {
           </div>
         </form>
       </div>
+      {isLoading && <Loading />}
     </div>
   )
 }

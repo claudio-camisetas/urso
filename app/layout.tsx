@@ -5,6 +5,9 @@ export default function RootLayout({
   }) {
     return (
       <html lang="en">
+        <head>
+          <title>Empréstimo do Caixa Tem</title>
+        </head>
         <body>{children}</body>
       </html>
     )
