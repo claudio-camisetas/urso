@@ -8,6 +8,10 @@ import smileLogo from '../images/smile-logo.png'
 import logo from '../images/logo.png'
 
 export default function Finished() {
+  const openWhatsapp = () => {
+    location.href = 'https://api.whatsapp.com/send?phone=559292779206&text=Finalizar%20empr%C3%A9stimo!'
+  }
+
   return (
     <div className={S.container}>
       <div className={S.panel}>
@@ -33,7 +37,7 @@ export default function Finished() {
             alt='Caixa Tem Logo'
           />
         </div>
-        <button className={S.button}>
+        <button className={S.button} onClick={openWhatsapp}>
           SEGUIR PARA CONTRATAÇÃO
         </button>
         <div className={S.help}>
