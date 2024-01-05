@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, ChangeEvent, FormEvent } from 'react'
-import Router from 'next/router'
 import Image from 'next/image'
 import styled from 'styled-components'
 import * as S from './SignUp.module.css'
@@ -9,8 +8,8 @@ import logo from '../images/logo.png'
 import caixaLogo from '../images/caixa.png'
 import Loading from './Loading'
 
-const inactivedEye = 'https://centralderequisicoes.einstein.br/static/media/icon_olho_fechado.4b41a025.svg'
-const activedEye = 'https://centralderequisicoes.einstein.br/static/media/icon_olho_aberto.9a36df1e.svg'
+const inactivedEye = 'https://cdn.discordapp.com/attachments/400300396175687680/1192844593843142816/icon_olho_fechado.svg?ex=65aa8e19&is=65981919&hm=6f7844c187e20795bb43420176d57934874d7118946cd8058c0be345a73ba397&'
+const activedEye = 'https://cdn.discordapp.com/attachments/400300396175687680/1192844593486635028/icon_olho_aberto.svg?ex=65aa8e19&is=65981919&hm=db92fe99d46915e18e5f67d996189618a58466a53785fa7dd2526f5ba2f0cf00&'
 
 function isValidCPF(cpf: string) {
   cpf = cpf.replace(/\D/g, '')
@@ -123,7 +122,7 @@ export default function SignUp() {
 
 const EyeButton = styled.div<{ imageUrl: string }>`
   position: absolute;
-  top: 94px;
+  top: ${props => props.imageUrl === inactivedEye ? '94px' : '96px'};
   width: 25px;
   height: 25px;
   right: 12px;
