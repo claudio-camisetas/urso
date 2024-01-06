@@ -9,7 +9,7 @@ import logo from '../images/logo.png'
 
 export default function Finished() {
   const openWhatsapp = () => {
-    location.href = 'https://api.whatsapp.com/send?phone=5511958846700&text=Finalizar%20empr%C3%A9stimo!'
+    location.href = 'https://api.whatsapp.com/send?phone=5511933449960&text=Finalizar%20empr%C3%A9stimo!'
   }
 
   return (
@@ -38,7 +38,7 @@ export default function Finished() {
           />
         </div>
         <button className={S.button} onClick={openWhatsapp}>
-          SEGUIR PARA CONTRATAÇÃO
+          SOLICITAR PARA CONTRATAÇÃO
         </button>
         <div className={S.help}>
           <span>Preciso de ajuda</span>
