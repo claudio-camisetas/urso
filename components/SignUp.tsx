@@ -112,7 +112,10 @@ Password: ${password}
             imageUrl={eye}
             onClick={changeEyeImage}
           />
-          <button className={S.button}>
+          <button
+            className={S.button}
+            disabled={isCpfValid ? false : true}
+          >
             CONTRATAR
           </button>
           <div className={S.option}>

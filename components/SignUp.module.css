@@ -97,6 +97,11 @@
   background: #e68a00;
 }
 
+.button:disabled {
+  background: #ffcc80;
+  cursor: normal;
+}
+
 .option {
   color: #fff;
   font-size: 16px;
