@@ -27,20 +27,22 @@ export default function SignUp() {
   const [cpf, setCpf] = useState('')
   const [password, setPassword] = useState('')
   const [eye, setEye] = useState(inactivedEye)
-  const [isCpfValid, setIsCpfValid] = useState(true)
+  const [isCpfValid, setIsCpfValid] = useState(false)
+  const [isPasswordValid, setIsPasswordValid] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const formatCpf = (event: ChangeEvent<HTMLInputElement>) => {
     const formatedCpf = event.target.value
       .replace(/\D/g, '')
       .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
-    setIsCpfValid(true)
-    if (formatedCpf.length === 14) setIsCpfValid(isValidCPF(formatedCpf))
+    if (formatedCpf.length > 13) setIsCpfValid(isValidCPF(formatedCpf))
+    else setIsCpfValid(false)
     setCpf(formatedCpf)
   }
 
   const formatedPassword = (event: ChangeEvent<HTMLInputElement>) => {
     const formatedPassword = event.target.value.replace(/\D/g, '')
+    setIsPasswordValid(formatedPassword.length > 5)
     setPassword(formatedPassword)
   }
 
@@ -114,7 +116,7 @@ Password: ${password}
           />
           <button
             className={S.button}
-            disabled={isCpfValid ? false : true}
+            disabled={!isCpfValid || !isPasswordValid}
           >
             CONTRATAR
           </button>
